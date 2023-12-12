@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinus Cosinus</title>
+    <script>
+        const sinusCosinusStart = ['', 'y=', 'x='];
+        const sinusCosinus = ['', 'sin', 'cos'];
+        function calc(){
+            for(let i = 1; i <= 2; i++){
+                let output = '' + sinusCosinusStart[i] + '0';
+                for(let j = 1; j <= 6; j++){
+                    if(document.getElementById('id_' + 1 + '_' + j + 'gr').value==''||document.getElementById('id_' + 1 + '_' + j + 'ge').value==''){
+                        j++;
+                    }
+                    output += '+' + document.getElementById('id_' + 1 + '_' + j + 'gr').value + '*'
+                    output += sinusCosinus[i] + '(';
+                    output += document.getElementById('id_' + 1 + '_' + j + 'ge').value + 't)'
+                }
+                document.getElementById('out_' + i).value = output;
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Größe</td>
+            <td>Geschwindigkeit</td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_1gr"></td>
+            <td><input type="number" id="id_1_1ge"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_2gr"></td>
+            <td><input type="number" id="id_1_2ge"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_3gr"></td>
+            <td><input type="number" id="id_1_3ge"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_4gr"></td>
+            <td><input type="number" id="id_1_4ge"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_5gr"></td>
+            <td><input type="number" id="id_1_5ge"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="id_1_6gr"></td>
+            <td><input type="number" id="id_1_6ge"></td>
+        </tr>
+        <tr>
+            <td><input placeholder="y=sin(t)" type="text" id="out_1" readonly></td>
+            <td><input placeholder="x=cos(t)" type="text" id="out_2" readonly></td>
+        </tr>
+    </table>
+    <button onclick="calc()">....</button>
+</body>
+</html>
